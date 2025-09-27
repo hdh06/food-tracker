@@ -1,1 +1,1 @@
-An app that track and manage your food in the frige.
+An app that track and manage your food in the fridge.
