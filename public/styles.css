@@ -1,6 +1,6 @@
 body, html {
-    margin: 0;
-    padding: 0;
+    margin: 0 0;
+    padding: 0 0;
 }
 body{ 
     font-family: Calibri, 'Trebuchet MS', sans-serif;
@@ -26,11 +26,14 @@ li {
 }
 
 .title {
+    margin: 0;
+    padding: 25px;
     font-family: 'Nunito', sans-serif;
 }
 
 header{
     width: 100vw;
+    height: 100px;
     text-align: center;
     background-color: #AFEBAD;
 }
@@ -39,6 +42,15 @@ h2 {
     text-align: center;
 }
 
+.tabs{
+    text-align: center;
+}
+
 .itemForm{
     text-align: center;
 }
+
+gmp-map {
+        height: 50%;
+        width: 50%;
+      }

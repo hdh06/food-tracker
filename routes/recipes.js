@@ -1,13 +1,15 @@
 import express from "express";
+import Item from "../models/Item.js";
+
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  // Replace this with API call or OpenAI later
-  const recipes = [
-    { id: 1, title: "Tomato Pasta", instructions: "Cook pasta and add tomatoes." },
-    { id: 2, title: "Veggie Omelette", instructions: "Beat eggs, add vegetables, cook on pan." }
-  ];
-  res.json(recipes);
+// Get all recipes or search by recipe field
+router.get("/", async (req, res) => {
+    const searchQuery = req.query.search || "";
+    const recipes = await Item.find({
+        recipe: { $regex: searchQuery, $options: "i" }
+    });
+    res.json(recipes);
 });
 
 export default router;

@@ -13,7 +13,7 @@ async function showTab(tab) {
 }
 
 // default tab
-showTab("kitchen");
+showTab("recipes");
 
 async function loadKitchen() {
   const form = document.getElementById("itemForm");
@@ -123,16 +123,31 @@ async function loadAnalytics() {
 }
 
 async function loadRecipes() {
-  const res = await fetch("/api/recipes");
-  const recipes = await res.json();
-  const div = document.getElementById("recipes");
-  div.innerHTML = "";
-  recipes.forEach(r => {
-    const card = document.createElement("div");
-    card.className = "recipe";
-    card.innerHTML = `<h3>${r.title}</h3><p>${r.instructions}</p>`;
-    div.appendChild(card);
-  });
+    const searchInput = document.getElementById("searchInput");
+    const searchButton = document.getElementById("searchButton");
+    const recipeList = document.getElementById("recipeList");
+
+    async function fetchRecipes(query = "") {
+        const res = await fetch(`/api/recipes`);
+        const recipes = await res.json();
+
+        console.log(recipes);
+
+        recipeList.innerHTML = "";
+        recipes.forEach(r => {
+            const card = document.createElement("div");
+            card.className = "recipe";
+            card.innerHTML = `<h3>${r.title}</h3><p>${r.instructions}</p>`;
+            recipeList.appendChild(card);
+        });
+    }
+
+    searchButton.onclick = () => {
+        const query = searchInput.value;
+        fetchRecipes(query);
+    };
+
+    fetchRecipes();
 }
 
 async function loadFoodBank() {

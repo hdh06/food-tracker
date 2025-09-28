@@ -2,21 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Food Tracker</title>
+  <title>Eco-Food Tracker</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJAr3yED80-VDpEMVMXc9mAlXyxH7o034&callback=console.debug&libraries=maps,marker&v=beta">
+    </script>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <h1 class="title" id="title">Food Tracker</h1>
-    <nav>
+  </header>
+    <nav class="tabs">
       <button onclick="showTab('kitchen')">Your Kitchen</button>
       <button onclick="showTab('analytics')">Analytics</button>
       <button onclick="showTab('recipes')">Recipes</button>
       <button onclick="showTab('foodbank')">Food Bank</button>
     </nav>
-  </header>
 
   <main id="tabContent"></main>
 
