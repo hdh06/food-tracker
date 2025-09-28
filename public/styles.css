@@ -1,0 +1,6 @@
+body { font-family: Arial, sans-serif; padding: 20px; }
+h1 { color: #2c3e50; }
+form { margin-bottom: 20px; }
+input, button { margin: 5px; padding: 5px; }
+button { cursor: pointer; }
+li { margin: 5px 0; }

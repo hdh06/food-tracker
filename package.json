@@ -1,0 +1,26 @@
+{
+  "name": "food-tracker",
+  "version": "1.0.0",
+  "description": "An app that track and manage your food in the frige.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hdh06/food-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hdh06/food-tracker/issues"
+  },
+  "homepage": "https://github.com/hdh06/food-tracker#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.2"
+  }
+}
