@@ -13,7 +13,7 @@ async function showTab(tab) {
 }
 
 // default tab
-showTab("kitchen");
+showTab("recipes");
 
 async function loadKitchen() {
   const form = document.getElementById("itemForm");
