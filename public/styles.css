@@ -1,56 +1,192 @@
-body, html {
-    margin: 0 0;
-    padding: 0 0;
-}
-body{ 
-    font-family: Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #e8f1f2;
-}
-
-h1 { 
-    color: #2c3e50; 
-}
-
-form { 
-    margin-bottom: 20px; 
-}
-
-input, button { 
-    margin: 5px; padding: 5px;
-}
-button {
-    cursor: pointer; 
-}
-li { 
-    margin: 5px 0; 
-}
-
-.title {
+* {
     margin: 0;
-    padding: 25px;
-    font-family: 'Nunito', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header{
-    width: 100vw;
-    height: 100px;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
     text-align: center;
-    background-color: #AFEBAD;
+    margin-bottom: 20px;
 }
 
-h2 {
-    text-align: center;
+header h1 {
+    color: #333;
+    font-size: 2.5rem;
+    font-weight: 300;
 }
 
-.tabs{
-    text-align: center;
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
-.itemForm{
-    text-align: center;
+#searchInput {
+    flex: 1;
+    min-width: 300px;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
-gmp-map {
-        height: 50%;
-        width: 50%;
-      }
+#searchInput:focus {
+    border-color: #4285f4;
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3367d6;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-panel {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+#locationInfo {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+#locationInfo h3 {
+    margin-bottom: 10px;
+    color: #4285f4;
+}
+
+#locationInfo p {
+    margin-bottom: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    #searchInput {
+        min-width: auto;
+        margin-bottom: 10px;
+    }
+    
+    #map {
+        height: 400px;
+    }
+    
+    button {
+        margin-bottom: 10px;
+    }
+}
+
+/* Loading state */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Food bank specific styles */
+#locationInfo a {
+    color: #EA4335;
+    text-decoration: none;
+}
+
+#locationInfo a:hover {
+    text-decoration: underline;
+}
+
+/* Info window styles */
+.gm-style .gm-style-iw-c {
+    border-radius: 8px !important;
+}
+
+.gm-style .gm-style-iw-d {
+    overflow: hidden !important;
+}
+
+/* Location permission notification */
+.location-status {
+    background-color: #e3f2fd;
+    border: 1px solid #2196f3;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #1976d2;
+}
+
+.location-status.error {
+    background-color: #ffebee;
+    border-color: #f44336;
+    color: #c62828;
+}
