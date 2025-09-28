@@ -1,8 +1,27 @@
 <h2>Your Kitchen</h2>
-<form id="itemForm">
-  <input type="text" id="name" placeholder="Item name" required>
-  <input type="number" id="quantity" placeholder="Quantity" required>
-  <input type="date" id="expiryDate" required>
-  <button type="submit">Add Item</button>
-</form>
-<ul id="inventory"></ul>
+<div id="kitchen">
+    <form id="itemForm" class="itemForm">
+        <input type="text" id="name" placeholder="Item Name" required>
+        <input type="number" id="quantity" placeholder="Quantity" required>
+        <input type="date" id="dateBrought" placeholder="Date Brought" required>
+        <input type="date" id="expiryDate" placeholder="Expiration Date" required>
+        <input type="text" id="recipe" placeholder="Recipe (optional)">
+        <button type="submit">Add Item</button>
+    </form>
+
+    <table id="inventory" style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th style="border: 1px solid black; padding: 8px; background-color: #f2f2f2;">Item Name</th>
+                <th style="border: 1px solid black; padding: 8px; background-color: #f2f2f2;">Quantity</th>
+                <th style="border: 1px solid black; padding: 8px; background-color: #f2f2f2;">Date Brought</th>
+                <th style="border: 1px solid black; padding: 8px; background-color: #f2f2f2;">Expiration Date</th>
+                <th style="border: 1px solid black; padding: 8px; background-color: #f2f2f2;">Recipe</th>
+                <th style="border: 1px solid black; padding: 8px; background-color: #f2f2f2;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be dynamically added here -->
+        </tbody>
+    </table>
+</div>

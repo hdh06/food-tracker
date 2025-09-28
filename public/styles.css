@@ -1,6 +1,44 @@
-body { font-family: Arial, sans-serif; padding: 20px; }
-h1 { color: #2c3e50; }
-form { margin-bottom: 20px; }
-input, button { margin: 5px; padding: 5px; }
-button { cursor: pointer; }
-li { margin: 5px 0; }
+body, html {
+    margin: 0;
+    padding: 0;
+}
+body{ 
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #e8f1f2;
+}
+
+h1 { 
+    color: #2c3e50; 
+}
+
+form { 
+    margin-bottom: 20px; 
+}
+
+input, button { 
+    margin: 5px; padding: 5px;
+}
+button {
+    cursor: pointer; 
+}
+li { 
+    margin: 5px 0; 
+}
+
+.title {
+    font-family: 'Nunito', sans-serif;
+}
+
+header{
+    width: 100vw;
+    text-align: center;
+    background-color: #AFEBAD;
+}
+
+h2 {
+    text-align: center;
+}
+
+.itemForm{
+    text-align: center;
+}

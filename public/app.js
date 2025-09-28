@@ -22,27 +22,75 @@ async function loadKitchen() {
   async function refresh() {
     const res = await fetch("/api/items");
     const items = await res.json();
-    list.innerHTML = "";
+
+    // Clear previous content
+    const tableBody = document.querySelector("#inventory tbody");
+    tableBody.innerHTML = "";
+
+    // Populate the table with items
     items.forEach(it => {
-      const li = document.createElement("li");
-      li.textContent = `${it.name} (${it.quantity}) - exp: ${new Date(it.expiryDate).toLocaleDateString()}`;
-      const del = document.createElement("button");
-      del.textContent = "❌";
-      del.onclick = async () => {
-        await fetch(`/api/items/${it._id}`, { method: "DELETE" });
-        refresh();
-      };
-      li.appendChild(del);
-      list.appendChild(li);
+        const row = document.createElement("tr");
+
+        // Item Name
+        const nameCell = document.createElement("td");
+        nameCell.textContent = it.name;
+        nameCell.style.border = "1px solid black";
+        nameCell.style.padding = "8px";
+        row.appendChild(nameCell);
+
+        // Quantity
+        const quantityCell = document.createElement("td");
+        quantityCell.textContent = it.quantity;
+        quantityCell.style.border = "1px solid black";
+        quantityCell.style.padding = "8px";
+        row.appendChild(quantityCell);
+
+        // Date Brought
+        const dateBroughtCell = document.createElement("td");
+        dateBroughtCell.textContent = new Date(it.dateBrought).toLocaleDateString();
+        dateBroughtCell.style.border = "1px solid black";
+        dateBroughtCell.style.padding = "8px";
+        row.appendChild(dateBroughtCell);
+
+        // Expiration Date
+        const expiryCell = document.createElement("td");
+        expiryCell.textContent = new Date(it.expiryDate).toLocaleDateString();
+        expiryCell.style.border = "1px solid black";
+        expiryCell.style.padding = "8px";
+        row.appendChild(expiryCell);
+
+        // Recipe
+        const recipeCell = document.createElement("td");
+        recipeCell.textContent = it.recipe || "N/A";
+        recipeCell.style.border = "1px solid black";
+        recipeCell.style.padding = "8px";
+        row.appendChild(recipeCell);
+
+        // Actions
+        const actionsCell = document.createElement("td");
+        actionsCell.style.border = "1px solid black";
+        actionsCell.style.padding = "8px";
+        const delButton = document.createElement("button");
+        delButton.textContent = "❌";
+        delButton.onclick = async () => {
+            await fetch(`/api/items/${it._id}`, { method: "DELETE" });
+            refresh();
+        };
+        actionsCell.appendChild(delButton);
+        row.appendChild(actionsCell);
+
+        tableBody.appendChild(row);
     });
-  }
+}
 
   form.onsubmit = async e => {
     e.preventDefault();
     const item = {
       name: document.getElementById("name").value,
       quantity: document.getElementById("quantity").value,
-      expiryDate: document.getElementById("expiryDate").value
+      dateBrought: document.getElementById("dateBrought").value,
+      expiryDate: document.getElementById("expiryDate").value,
+      recipe: document.getElementById("recipe").value
     };
     await fetch("/api/items", {
       method: "POST",

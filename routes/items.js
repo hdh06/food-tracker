@@ -11,9 +11,10 @@ router.get("/", async (req, res) => {
 
 // Add new item
 router.post("/", async (req, res) => {
-  const item = new Item(req.body);
-  await item.save();
-  res.json(item);
+    console.log(req.body);
+    const item = new Item(req.body);
+    await item.save();
+    res.json(item);
 });
 
 // Delete item
