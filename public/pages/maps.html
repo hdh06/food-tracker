@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Maps Application</h1>
+        </header>
+
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Enter a location to search...">
+            <button id="searchButton">Search</button>
+            <button id="getCurrentLocation">Get Current Location</button>
+        </div>
+
+        <div id="locationStatus" class="location-status" style="display: none;">
+            <p id="statusMessage">Requesting location permission...</p>
+        </div>
+
+        <div id="map"></div>
+
+        <div class="info-panel">
+            <div id="locationInfo">
+                <p>Click on the map or search </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Maps API with API Key -->
+     <script src="js/maps.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAi1pav7zVg4RJN4EdHEm13m9mRToAxMk&libraries=places&callback=initMap" async defer></script>
+</body>
+</html>
